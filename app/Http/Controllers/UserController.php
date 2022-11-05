@@ -11,8 +11,9 @@ class UserController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = User::select('id','nama','email','password', 'created_at')->get();
-            return DataTables()->of($data)->addIndexColumn()
+            $data = User::join('detail_user', 'users.id', '=', 'detail_user.user_id')
+                ->select(['users.id', 'users.nama', 'users.email', 'users.created_at', 'detail_user.alamat', 'detail_user.tlpn',  'detail_user.status']);
+            return datatables()->of($data)
                 ->addColumn('action', function ($data) {
                     // $button = '<a data-toggle="tooltip" data-placement="top" title="Edit" href="' . url('edit-admin/' . $data->id) . '">
                     // <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
@@ -42,10 +43,9 @@ class UserController extends Controller
 
                     return $button;
                 })->rawColumns(['action'])->make(true);
-            return DataTables::of($data)
+            return datatables()::of($data)
                 ->make(true);
         }
-        // dd($data);
         return view('user.daftar-user');
     }
 }

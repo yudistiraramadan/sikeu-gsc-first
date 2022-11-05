@@ -17,6 +17,9 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+
+
     protected $fillable = [
         'role_id',
         'nama',
@@ -41,6 +44,8 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'created_at' => 'datetime:D-M-Y',
+
     ];
 
     // One to Many
