@@ -17,15 +17,15 @@ class RoleSeeder extends Seeder
     {
         Role::create([
             'id' => '1',
-            'nama_role' => 'bendahara'
+            'nama_role' => 'bendahara',
         ]);
         Role::create([
             'id' => '2',
-            'nama_role' => 'pengamat'
+            'nama_role' => 'pengamat',
         ]);
         Role::create([
             'id' => '3',
-            'nama_role' => 'relawan'
+            'nama_role' => 'relawan',
         ]);
     }
 }

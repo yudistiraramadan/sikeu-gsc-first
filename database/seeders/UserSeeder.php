@@ -17,22 +17,22 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::create([
-            'email' => 'yudis8913@gmail.com',
-            'nama' => 'Yudistira RK',
-            'password' => Hash::make('tes'),
+            'email' => 'bendahara@gmail.com',
+            'nama' => 'Bendahara',
+            'password' => Hash::make('123'),
             'role_id' => '1',
         ]);
         User::create([
-            'email' => 'yudiskw1@gmail.com',
-            'nama' => 'Yudistira RK',
-            'password' => Hash::make('tes'),
-            'role_id' => '1',
+            'email' => 'pengamat@gmail.com',
+            'nama' => 'Pengamat',
+            'password' => Hash::make('123'),
+            'role_id' => '2',
         ]);
         User::create([
-            'email' => 'yudiskw2@gmail.com',
-            'nama' => 'Yudistira RK',
-            'password' => Hash::make('tes'),
-            'role_id' => '1',
+            'email' => 'relawan@gmail.com',
+            'nama' => 'Relawan',
+            'password' => Hash::make('123'),
+            'role_id' => '3',
         ]);
     }
 }
